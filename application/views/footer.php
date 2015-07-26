@@ -70,9 +70,9 @@
 
                 <div style="float:left;padding-left: 5px">
                     <form class="form">
-                        <div class="input-append">
-                            <input type="text" class="span2"/><span style="padding-left: 5px"></span>
-                            <button type="submit" class="btn btn-small btn-primary" style="padding-left: 10px">筛选</button>
+                        <div class="input-append" style="float:left">
+                            <input type="text" class="span2" style="float:left"/><span style="float:left;padding-left: 5px"> &nbsp;</span>
+                            <button type="submit" class="btn btn-small btn-primary" style="float:left">筛选</button>
                         </div>
                     </form>
                 </div>
