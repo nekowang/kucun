@@ -1,4 +1,4 @@
-    <div>
+<div class="footer">
         <form>
             <fieldset>
                 <div style="float:left">
@@ -9,7 +9,8 @@
                         <input type="checkbox" id="inlineCheckbox2" value="option2">排序
                     </label>
                 </div>
-                <div style="float:left">
+                
+                <div style="float:left;padding-left: 10px">
                     <form class="form-horizontal">
                         <fieldset>
                             <div class="control-group">
@@ -29,45 +30,51 @@
                         });
                     </script>
 
+                </div>   
+                
+                <div style="float:left;padding-left: 10px">
+                    <span>付款：</span>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>全部
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"><font color='green'>已付清</font>
+                    </label>                 
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"><font color='red'>未付清</font>
+                    </label>
                 </div>
-                <div style="float:left">
-                    <div style="float:left">
-                        <font size='2px'> 付款：</font>
-                        <label class="radio inline">
-                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>全部
-                        </label>
-                        <label class="radio inline">
-                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"><font color='green'>已付清</font>
-                        </label>                 
-                        <label class="radio inline">
-                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"><font color='red'>未付清</font>
-                        </label>
-                        <font size='2px'> 利润：</font>
-                        <label class="radio inline">
-                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>全部
-                        </label>
-                        <label class="radio inline">
-                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"><font color='green'>正</font>
-                        </label>                 
-                        <label class="radio inline">
-                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"><font color='red'>负</font>
-                        </label>
-                        <select class="span2">
-                            <option>发货单号</option>
-                            <option>产品日期</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                    <div style="float:left">
-                        <form class="form">
-                            <div class="input-append">
-                                <input type="text" class="span2">
-                                <button type="submit" class="btn btn-small btn-primary">筛选</button>
-                            </div>
-                        </form>
-                    </div>
+
+                <div style="float:left;padding-left: 10px">                      
+                    <span>利润：</span>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>全部
+                    </label>
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"><font color='green'>正</font>
+                    </label>                 
+                    <label class="radio inline">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"><font color='red'>负</font>
+                    </label>
+                </div>
+
+                <div style="float:left;padding-left: 10px">  
+                    <select class="span2">
+                        <option>发货单号</option>
+                        <option>产品日期</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+                <div style="float:left;padding-left: 5px">
+                    <form class="form">
+                        <div class="input-append">
+                            <input type="text" class="span2"/><span style="padding-left: 5px"></span>
+                            <button type="submit" class="btn btn-small btn-primary" style="padding-left: 10px">筛选</button>
+                        </div>
+                    </form>
                 </div>
             </fieldset>
         </form>

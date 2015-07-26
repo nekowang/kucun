@@ -1,5 +1,6 @@
     <div>
         <ul class="nav nav-tabs">
+            <li><a></a></li>
             <li class="active"><a>发货</a></li>
             <li><a href="/admin/kucun">库存</a></li>
             <li><a href="/admin/cangku">仓库</a></li>
@@ -10,7 +11,7 @@
         </ul>
     </div>
 
-    <div>
+   <div class="dataform">
         <table class="table table-bordered table-striped table-condensed table-hover">
             <thead>
                 <tr>
@@ -77,7 +78,8 @@
             <li><a href="#">6</a></li>
             <li><a href="#">后一页</a></li>
             <li><a href="#">末页</a></li>
+            <li><?php echo "<font size='2px'>&nbsp;&nbsp;共有<font color='red'> 650 </font>条数据</font>"; ?></li>
         </ul>
-<?php echo "<font size='2px'> 共有650条数据</font>"; ?>
-        <button class="btn btn-primary  btn-small" type="button" style="float:right">+ 添加库存</button>
+        <span class="buttontianjia"></span>
+        <button class="btn btn-primary  btn-small" type="button">+ 添加库存</button>
     </div>

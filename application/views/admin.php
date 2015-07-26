@@ -79,6 +79,7 @@ echo date('Y-m-d'); ?> <span id="timeclock"></span></a></li>
     </div>
     <div>
         <ul class="nav nav-tabs">
+            <li><a></a></li>
             <li class="active"><a href="#">发货</a></li>
             <li><a href="#">库存</a></li>
             <li><a href="#">仓库</a></li>
@@ -89,7 +90,7 @@ echo date('Y-m-d'); ?> <span id="timeclock"></span></a></li>
         </ul>
     </div>
 
-    <div>
+    <div class="dataform">
         <table class="table table-bordered table-striped table-condensed table-hover">
             <thead>
                 <tr>
@@ -156,9 +157,10 @@ echo date('Y-m-d'); ?> <span id="timeclock"></span></a></li>
             <li><a href="#">6</a></li>
             <li><a href="#">后一页</a></li>
             <li><a href="#">末页</a></li>
-        </ul>
-<?php echo "<font size='2px'> 共有650条数据</font>"; ?>
-        <button class="btn btn-primary  btn-small" type="button" style="float:right">+ 添加库存</button>
+            <li><?php echo "<font size='2px'>&nbsp;&nbsp;共有<font color='red'> 650 </font>条数据</font>"; ?></li>
+        </ul>        
+        <span class="buttontianjia"></span>
+        <button class="btn btn-primary  btn-small" type="button">+ 添加库存</button>
     </div>
 
     <div>

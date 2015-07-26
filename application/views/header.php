@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
+        <link rel="stylesheet" type="text/css" href="/css/admin.css">
         <link rel="stylesheet" type="text/css" media="all" href="/css/daterangepicker-bs3.css" />
         <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="/js/moment.js"></script>

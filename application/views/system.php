@@ -1,5 +1,6 @@
     <div>
         <ul class="nav nav-tabs">
+            <li><a></a></li>
             <li><a href="/admin/index">发货</a></li>
             <li><a href="/admin/kucun">库存</a></li>
             <li><a href="/admin/cangku">仓库</a></li>
