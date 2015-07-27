@@ -15,52 +15,42 @@
         <table class="table table-bordered table-striped table-condensed table-hover">
             <thead>
                 <tr>
-                    <th>发货单号</th><th>产品编号</th><th>记录日期</th><th>客户名称</th><th>出发仓库</th>
-                    <th>重量(吨)</th><th>合同单价</th><th>应收金额</th><th>优惠金额</th><th>总应收款</th>
-                    <th>税金</th><th>运费</th><th>加工费</th><th>出倒库费</th><th>账期利息</th><th>其他费用</th>
-                    <th>利润</th><th>实收金额</th><th>剩余金额</th><th>收款详情</th><th>操作</th><th>备注</th>
+                    <th>仓库编号</th><th>仓库名称</th><th>地址</th><th>产地</th><th>传真</th><th>联系人</th>
+                    <th>电话</th><th>操作</th><th>备注</th><th>优惠金额</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
+                    <td>...</td><td>...</td>
                 </tr>
                 <tr>
                     <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
+                    <td>...</td><td>...</td>
                 </tr>                
                 <tr>
                     <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
+                    <td>...</td><td>...</td>
                 </tr>                
                 <tr>
                     <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
+                    <td>...</td><td>...</td>
                 </tr>                
                 <tr>
                     <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
+                    <td>...</td><td>...</td>
                 </tr>                
                 <tr>
                     <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
+                    <td>...</td><td>...</td>
                 </tr>                
                 <tr>
                     <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
+                    <td>...</td><td>...</td>
                 </tr>                
                 <tr>
                     <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
+                    <td>...</td><td>...</td>
                 </tr>
             </tbody>
         </table>
@@ -81,5 +71,12 @@
             <li><?php echo "<font size='2px'>&nbsp;&nbsp;共有<font color='red'> 650 </font>条数据</font>"; ?></li>
         </ul>
         <span class="buttontianjia"></span>
-        <button class="btn btn-primary  btn-small" type="button">+ 添加库存</button>
+        <button class="btn btn-primary  btn-small" type="button" id="addcangku">+ 添加仓库</button>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+           $("#addcangku").click(function(){
+                location.href = "/cangku/addcangku";  
+           });
+        });
+    </script>

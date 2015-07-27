@@ -1109,6 +1109,11 @@ textarea,
   width: 206px;
 }
 
+textarea,
+.uneditable-input {
+  width: 1170px;
+}
+
 textarea {
   height: auto;
 }

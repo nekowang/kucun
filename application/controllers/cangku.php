@@ -11,7 +11,14 @@ class Cangku extends CI_Controller {
 	{
 		$this->load->view('header');
 		$this->load->view('cangku');
-                $this->load->view('footer');
+                //$this->load->view('footer');
+	}
+        
+        public function addcangku()
+	{
+		$this->load->view('header');
+		$this->load->view('addcangku');
+                //$this->load->view('footer');
 	}
         
         
