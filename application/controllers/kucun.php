@@ -13,7 +13,12 @@ class Kucun extends CI_Controller {
 		$this->load->view('kucun');
                 $this->load->view('footer');
 	}
-        
+
+	public function addkucun()
+	{
+		$this->load->view('header');
+		$this->load->view('addkucun');
+	}        
         
 }
 

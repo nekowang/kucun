@@ -11,7 +11,7 @@ class Gongyingshang extends CI_Controller {
 	{
 		$this->load->view('header');
 		$this->load->view('gongyingshang');
-                $this->load->view('footer');
+                //$this->load->view('footer');
 	}
         
         

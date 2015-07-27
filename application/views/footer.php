@@ -1,12 +1,11 @@
 <div class="footer">
+    <br/>
+    <br/>
         <form>
             <fieldset>
                 <div style="float:left">
                     <label class="checkbox inline">
                         <input type="checkbox" id="inlineCheckbox1" value="option1">筛选
-                    </label>
-                    <label class="checkbox inline">
-                        <input type="checkbox" id="inlineCheckbox2" value="option2">排序
                     </label>
                 </div>
                 
@@ -75,6 +74,17 @@
                             <button type="submit" class="btn btn-small btn-primary" style="float:left">筛选</button>
                         </div>
                     </form>
+                </div>
+            </fieldset>
+        </form>
+    
+        <form>
+            <fieldset>
+                <div>
+                    <label class="checkbox inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="option1">排序
+                        <span>&nbsp;日期</span>
+                    </label>
                 </div>
             </fieldset>
         </form>

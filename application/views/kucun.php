@@ -81,5 +81,12 @@
             <li><?php echo "<font size='2px'>&nbsp;&nbsp;共有<font color='red'> 650 </font>条数据</font>"; ?></li>
         </ul>
         <span class="buttontianjia"></span>
-        <button class="btn btn-primary  btn-small" type="button">+ 添加库存</button>
+        <button class="btn btn-primary  btn-small" type="button" id="addkucun">+ 添加库存</button>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+           $("#addkucun").click(function(){
+                location.href = "/kucun/addkucun";  
+           });
+        });
+    </script>
