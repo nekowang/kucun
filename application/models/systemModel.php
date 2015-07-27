@@ -20,6 +20,13 @@ class systemModel extends CI_Model {
         return $query = $this->db->affected_rows();
         
     }
+    function login_verify($username){
+        $this->db->select('Password');
+        $this->db->where('Name',$username);
+        $query = $this->db->get('admin');
+        return $query->row_array();
+    }
+    
     
 }
 

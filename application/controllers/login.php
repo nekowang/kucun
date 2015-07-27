@@ -4,7 +4,7 @@ class Login extends CI_Controller {
     
         public function __construct() {
             parent::__construct();
-                //$this->load->model('admin_model');
+               $this->load->model('systemModel');
         }
 
 	public function index(){
@@ -13,14 +13,23 @@ class Login extends CI_Controller {
         
         public function verify(){
             $username = $this->input->post('username');
-            $password = $this->input->post('password');
+            $password_ori = $this->input->post('password');
+            $password = md5($password_ori);
             
             $url = preg_replace('/\?error=false/', '', $_SERVER['HTTP_REFERER']);
             
-            if($username == 'admin' && $password =='admin'){
-                header("location:/fahuo/index");
-            } else {
-                header("location:$url?error=false");
+            $res = $this->systemModel->login_verify($username);
+            if(empty($res)){
+                header("location:$url?error=false"); 
+                exit();
+            }else{
+                $password_search = $res['Password'];
+
+                if($password == $password_search){
+                    header("location:/fahuo/index");
+                }else{
+                    header("location:$url?error=false");
+                }
             }
         }
 }
