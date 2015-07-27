@@ -20,38 +20,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td>
-                </tr>
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td>
-                </tr>                
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td>
-                </tr>                
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td>
-                </tr>                
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td>
-                </tr>                
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td>
-                </tr>                
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td>
-                </tr>                
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td>
-                </tr>
+                <?php
+                foreach ($houses as $house ):
+                    echo "<tr><td>$house->Code</td><td>$house->Name</td><td>$house->Addr</td><td>$house->Area</td>";
+                    echo "<td>$house->Fax</td><td>$house->Contact</td><td>$house->Tel</td><td><a href='/cangku/edit/".$house->Id."'>编辑</a>";
+                    echo "&nbsp;&nbsp;<a href='/cangku/del/".$house->Id."'>删除</a></td><td>$house->Note</td><td>..</td></tr>";
+                endforeach;
+                ?>
             </tbody>
         </table>
     </div>
@@ -76,7 +51,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
            $("#addcangku").click(function(){
-                location.href = "/cangku/addcangku";  
+                location.href = "/cangku/add";  
            });
         });
     </script>

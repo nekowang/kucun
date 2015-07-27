@@ -12,42 +12,42 @@
 </div>
 
 <div class="dataform">
-    <form action="/cangku/add" method="post">
+    <form action="/cangku/edit" method="post">
+        <input type="hidden" name="Id" value="<?php echo $house->Id; ?>" />
         <fieldset>
-            <legend><b>添加仓库</b></legend>
+            <legend><b>编辑仓库</b></legend>
             <div class="control-group info">
                 <div class="controls">
                     <span class="help-inline">仓库编号：</span>                    
-                    <input type="text" id="inputInfo" name="Code">
+                    <input type="text" id="inputInfo" name="Code" value="<?php echo $house->Code; ?>" />
                 </div>
                 <br/>
                 <div class="controls">
                     <span class="help-inline">仓库名称：</span>                    
-                    <input type="text" id="inputInfo" name="Name">
+                    <input type="text" id="inputInfo" name="Name" value="<?php echo $house->Name; ?>" />
                     <span class="help-inline" style="padding-left: 50px">地址：</span>                    
-                    <input type="text" id="inputInfo" name="Addr">                    
+                    <input type="text" id="inputInfo" name="Addr" value="<?php echo $house->Addr; ?>" />
                 </div>                
                 <br/>
                 <div class="controls">
                     <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;传真：</span>                    
-                    <input type="text" id="inputInfo" name="Fax">
+                    <input type="text" id="inputInfo" name="Fax" value="<?php echo $house->Fax; ?>" />
                     <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系人：</span>                    
-                    <input type="text" id="inputInfo" name="Contact">                    
+                    <input type="text" id="inputInfo" name="Contact" value="<?php echo $house->Contact; ?>" />
                     <span class="help-inline" style="padding-left: 50px">电话：</span>                    
-                    <input type="text" id="inputInfo" name="Tel">
+                    <input type="text" id="inputInfo" name="Tel" value="<?php echo $house->Tel; ?>" />
                     <span class="help-inline" style="padding-left: 50px">产地：</span>                    
-                    <input type="text" id="inputInfo" name="Area"> 
+                    <input type="text" id="inputInfo" name="Area" value="<?php echo $house->Area; ?>" />
                 </div> 
                 <br/>
                 <div class="controls">
                     <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注：</span>                    
-                    <textarea rows="10" width="100%" name="Note"></textarea>
+                    <textarea rows="10" width="100%" name="Note"><?php echo $house->Note; ?></textarea>
                 </div>                 
             </div>                
             <br/>
             <div style="padding-left: 1120px">
-                <button class="btn btn-primary btn-success" type="submit">确认添加</button>
-                <button class="btn" type="reset">重置</button>
+                <button class="btn btn-primary btn-success" type="submit">提交</button>
             </div>
         </fieldset>
     </form>
