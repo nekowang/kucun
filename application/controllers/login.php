@@ -20,7 +20,7 @@ class Login extends CI_Controller {
             if($username == 'admin' && $password =='admin'){
                 header("location:/fahuo/index");
             } else {
-                header("location:$url.?error=false");
+                header("location:$url?error=false");
             }
         }
 }

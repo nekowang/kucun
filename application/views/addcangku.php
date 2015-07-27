@@ -24,18 +24,18 @@
                 <div class="controls">
                     <span class="help-inline">仓库名称：</span>                    
                     <input type="text" id="inputInfo">
-                    <span class="help-inline" style="padding-left: 50px">地址：</span>                    
+                    <span class="help-inline cangkupadding">地址：</span>                    
                     <input type="text" id="inputInfo">                    
                 </div>                
                 <br/>
                 <div class="controls">
                     <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;传真：</span>                    
                     <input type="text" id="inputInfo">
-                    <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系人：</span>                    
+                    <span class="help-inline">&nbsp;&nbsp;&nbsp;联系人：</span>                    
                     <input type="text" id="inputInfo">                    
-                    <span class="help-inline" style="padding-left: 50px">电话：</span>                    
+                    <span class="help-inline cangkupadding">电话：</span>                    
                     <input type="text" id="inputInfo">
-                    <span class="help-inline" style="padding-left: 50px">产地：</span>                    
+                    <span class="help-inline cangkupadding">产地：</span>                    
                     <input type="text" id="inputInfo"> 
                 </div> 
                 <br/>

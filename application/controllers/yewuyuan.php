@@ -11,7 +11,7 @@ class Yewuyuan extends CI_Controller {
 	{
 		$this->load->view('header');
 		$this->load->view('yewuyuan');
-                $this->load->view('footer');
+                //$this->load->view('footer');
 	}
         
         
