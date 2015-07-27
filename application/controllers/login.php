@@ -18,7 +18,7 @@ class Login extends CI_Controller {
             $url = preg_replace('/\?error=false/', '', $_SERVER['HTTP_REFERER']);
             
             if($username == 'admin' && $password =='admin'){
-                header("location:/admin/index");
+                header("location:/fahuo/index");
             } else {
                 header("location:$url.?error=false");
             }
