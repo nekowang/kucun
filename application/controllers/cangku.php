@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Cangku extends CI_Controller {
     
         public function __construct() {
             parent::__construct();
@@ -9,8 +9,18 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin');
+		$this->load->view('header');
+		$this->load->view('cangku');
+                //$this->load->view('footer');
 	}
+        
+        public function addcangku()
+	{
+		$this->load->view('header');
+		$this->load->view('addcangku');
+                //$this->load->view('footer');
+	}
+        
         
 }
 
