@@ -12,75 +12,79 @@
 </div>
 
 <div class="dataform">
-    <form action="/kucun/add" method="post">
+    <form action="/kucun/edit" method="post">
+        <input type="hidden" name="Id" value="<?php echo $product->Id; ?>" />
         <fieldset>
-            <legend><b>添加库存</b></legend>
+            <legend><b>编辑库存</b></legend>
             <div class="control-group info">
                 <div class="controls">
                     <span class="help-inline">产品编号：</span>                    
-                    <input type="text" id="inputInfo" name="Code">
+                    <input type="text" id="inputInfo" name="Code" value="<?php echo $product->Code; ?>">
                 </div>
                 <br/>
                 <div class="controls">
                     <span class="help-inline">采购日期：</span>                    
-                    <input type="text" id="inputInfo" name="BuyingDate" placeholder="例:1949-10-01">
+                    <input type="text" id="inputInfo" name="BuyingDate" value="<?php echo $product->BuyingDate; ?>">
                     <span class="help-inline kucunpadding">合同编号：</span>                    
-                    <input type="text" id="inputInfo" name="PactCode">                    
+                    <input type="text" id="inputInfo" name="PactCode" value="<?php echo $product->PactCode; ?>">                    
                     <span class="help-inline kucunpadding">供应商：</span>                    
-                    <input type="text" id="inputInfo" name="Supplier">   
+                    <input type="text" id="inputInfo" name="Supplier" value="<?php echo $product->Supplier; ?>">   
                 </div>                
                 <br/>
                 <div class="controls">
                     <span class="help-inline">产品名称：</span>                    
-                    <input type="text" id="inputInfo" name="Name">
+                    <input type="text" id="inputInfo" name="Name" value="<?php echo $product->Name; ?>">
                     <span class="help-inline kucunpadding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类别：</span>                    
-                    <input type="text" id="inputInfo" name="Type">                    
+                    <input type="text" id="inputInfo" name="Type" value="<?php echo $product->Type; ?>">                    
                     <span class="help-inline kucunpadding">&nbsp;&nbsp;&nbsp;&nbsp;规格：</span>                    
-                    <input type="text" id="inputInfo" name="Specification">
+                    <input type="text" id="inputInfo" name="Specification" value="<?php echo $product->Specification; ?>">
                     <span class="help-inline kucunpadding">产地：</span>                    
-                    <input type="text" id="inputInfo" name="Area"> 
+                    <input type="text" id="inputInfo" name="Area" value="<?php echo $product->Area; ?>"> 
                 </div> 
                 <br/>                
                 <div class="controls">
                     <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;材质：</span>                    
-                    <input type="text" id="inputInfo" name="Texture">
+                    <input type="text" id="inputInfo" name="Texture" value="<?php echo $product->Texture; ?>">
                     <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;品重量(吨)：</span>                    
-                    <input type="text" id="inputInfo" name="Weight">                    
+                    <input type="text" id="inputInfo" name="Weight" value="<?php echo $product->Weight; ?>">                    
                     <span class="help-inline kucunpadding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单价：</span>                    
-                    <input type="text" id="inputInfo" name="Price">
+                    <input type="text" id="inputInfo" name="Price" value="<?php echo $product->Price; ?>">
                     <span class="help-inline kucunpadding">单价：</span>                    
                     <input type="text" id="inputInfo" placeholder="这是假的"> 
                 </div> 
                 <br/>
                 <div class="controls">
                     <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贷权：</span>                    
-                    <input type="text" id="inputInfo" name="LoanRight">
+                    <input type="text" id="inputInfo" name="LoanRight" value="<?php echo $product->LoanRight; ?>">
                     <span class="help-inline kucunpadding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;仓库：</span>                    
                     <select name="HouseId">
                         <?php
                         foreach ($cangku as $key=>$val){
-                            echo "<option value='".$key."'>$val</option>";
+                            if($product->HouseId == $key){
+                                echo "<option value='".$key."' selected='selected'>$val</option>";
+                            }else{
+                                echo "<option value='".$key."'>$val</option>";
+                            }
                         }
                         ?>
                     </select>                  
                     <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;是否付款：</span>                    
                     <select name="isPay">
-                        <option value="0">否</option>
-                        <option value="1">是</option>
+                        <option value="0" <?php echo $product->isPay ? "" : "selected='selected'";?>>否</option>
+                        <option value="1" <?php echo $product->isPay ? "selected='selected'" : "";?>>是</option>
                     </select>
                     <span class="help-inline">付款金额：</span>                    
-                    <input type="text" id="inputInfo" name="PayMoney"> 
+                    <input type="text" id="inputInfo" name="PayMoney" value="<?php echo $product->PayMoney; ?>"> 
                 </div> 
                 <br/>                
                 <div class="controls">
                     <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注：</span>                    
-                    <textarea rows="10" width="100%" name="Note"></textarea>
+                    <textarea rows="10" width="100%" name="Note"><?php echo $product->Note; ?></textarea>
                 </div>                 
             </div>                
             <br/>
             <div style="padding-left: 1120px">
-                <button class="btn btn-primary btn-success" type="submit">确认添加</button>
-                <button class="btn" type="reset">重置</button>
+                <button class="btn btn-primary btn-success" type="submit">完成</button>
             </div>
         </fieldset>
     </form>

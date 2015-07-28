@@ -15,53 +15,25 @@
         <table class="table table-bordered table-striped table-condensed table-hover">
             <thead>
                 <tr>
-                    <th>发货单号</th><th>产品编号</th><th>记录日期</th><th>客户名称</th><th>出发仓库</th>
-                    <th>重量(吨)</th><th>合同单价</th><th>应收金额</th><th>优惠金额</th><th>总应收款</th>
-                    <th>税金</th><th>运费</th><th>加工费</th><th>出倒库费</th><th>账期利息</th><th>其他费用</th>
-                    <th>利润</th><th>实收金额</th><th>剩余金额</th><th>收款详情</th><th>操作</th><th>备注</th>
+                    <th>产品编号</th><th>采购日期</th><th>合同编号</th><th>供应商</th>
+                    <th>重量(吨)</th><th>产品单价</th><th>应收金额</th><th>产地</th><th>规格</th>
+                    <th>材质</th><th>代权</th><th>仓库</th>
+                    <th>是否付款</th><th>实收金额</th><th>操作</th><th>备注</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                </tr>
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                </tr>                
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                </tr>                
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                </tr>                
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                </tr>                
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                </tr>                
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                </tr>                
-                <tr>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                    <td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td>
-                </tr>
+              <?php
+              if(!empty($products)){
+                foreach ($products as $product ):
+                    echo "<tr><td>$product->Code</td><td>$product->BuyingDate</td><td>$product->PactCode</td><td>$product->Supplier</td>";
+                    echo "<td>$product->Weight</td><td>$product->Price</td><td>xxx</td><td>$product->Area</td><td>$product->Specification</td>";
+                    echo "<td>$product->Texture</td><td>$product->LoanRight</td>";
+                    echo "<td>$product->HouseId</td><td>";
+                    echo $product->isPay ? "是" : "否";
+                    echo "</td><td>$product->PayMoney</td>";
+                    echo "<td><a href='/kucun/edit/".$product->Id."'>编辑</a>&nbsp;&nbsp;<a href='/kucun/del/".$product->Id."'>删除</a></td><td>$product->Note</td></tr>";
+                endforeach;}
+                ?>
             </tbody>
         </table>
     </div>
@@ -86,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
            $("#addkucun").click(function(){
-                location.href = "/kucun/addkucun";  
+                location.href = "/kucun/add";  
            });
         });
     </script>

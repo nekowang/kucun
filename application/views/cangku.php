@@ -21,11 +21,12 @@
             </thead>
             <tbody>
                 <?php
+                if(!empty($houses)){
                 foreach ($houses as $house ):
                     echo "<tr><td>$house->Code</td><td>$house->Name</td><td>$house->Addr</td><td>$house->Area</td>";
                     echo "<td>$house->Fax</td><td>$house->Contact</td><td>$house->Tel</td><td><a href='/cangku/edit/".$house->Id."'>编辑</a>";
                     echo "&nbsp;&nbsp;<a href='/cangku/del/".$house->Id."'>删除</a></td><td>$house->Note</td><td>..</td></tr>";
-                endforeach;
+                endforeach;}
                 ?>
             </tbody>
         </table>
