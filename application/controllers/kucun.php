@@ -11,8 +11,44 @@ class Kucun extends CI_Controller {
         $this->load->view('header');
         }
 
-    public function index(){
-        $kucunObj = $this->kucunModel->getList();
+    public function index($page = 1){
+        $kucunnum = $this->kucunModel->getListNum();
+        $pagesize = 20;
+        $pagenum = ceil($kucunnum / $pagesize);
+        if (empty($page)) {
+            $page = 1;
+        } else {
+            $page = $page;
+        }
+        $init = 1; 
+        $max_p = $pagenum;         
+        $offset = ($page - 1) * $pagesize;
+
+        $page_len = 7;
+        $page_len = ($page_len % 2) ? $page_len : $page_len + 1; //页码个数 
+        $pageoffset = ($page_len - 1) / 2; //页码个数左右偏移量 
+
+        if ($pagenum > $page_len) {
+            if ($page <= $pageoffset) {  //如果当前页小于等于左偏移 
+                $init = 1;
+                $max_p = $page_len;
+            } else { //如果当前页大于左偏移
+                if ($page + $pageoffset > $pagenum) {  //如果当前页码右偏移超出最大分页数 
+                    $init = $pagenum - $page_len + 1;
+                    $max_p = $pagenum;
+                } else {  //左右偏移都存在时的计算 
+                    $init = $page - $pageoffset;
+                    $max_p = $page + $pageoffset;
+                }
+            }
+        }
+        $data['page'] = $page;
+        $data['pagenum'] = $pagenum;
+        $data['init'] = $init;
+        $data['max_p'] = $max_p;
+        $data['kucunnum'] = $kucunnum;
+        
+        $kucunObj = $this->kucunModel->getList($offset, $pagesize);
         if($kucunObj){
             foreach($kucunObj as $row){
                 $house = $this->cangkuModel->getById($row->HouseId); //把仓库名查出来放到库存对象的HouseId里
@@ -37,7 +73,8 @@ class Kucun extends CI_Controller {
         }else{
             $this->kucunModel->add($kucun);
             //$this->load->view('footer');
-            redirect('/kucun/index');
+            $data['addinfo'] = 'sucess';
+            $this->load->view('addkucun',$data);
         }
     }
     
