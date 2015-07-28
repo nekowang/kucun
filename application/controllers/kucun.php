@@ -52,16 +52,16 @@ class Kucun extends CI_Controller {
         $data['order'] = $order;
         
         //分页结束
-        if($this->input->post()){
+        if($this->input->post() != false){
             $form=$this->input->post();
-            if($form['search']){
+            if(isset($form['search']) && !empty($form['search'])){
                 $filter = array(
                     'search'=>$form['search'],
                     'title'=>$form['title']
                     );
             }else{
                 $from = substr($form['date'],0,10);
-                $to = substr($form['date'],10);
+                $to = substr($form['date'],12);
                 switch ($form['pay']){
                     case 0:
                         $pay = "";
@@ -74,12 +74,14 @@ class Kucun extends CI_Controller {
                         break;
                 }
                 $filter = array(
-                    'date'=>"BuyingDate BETWEEN $from AND $to",
+                    'date'=>"BuyingDate BETWEEN '$from' AND '$to'",
                     'pay'=>$pay
                 );
             }
+        }else{
+            $filter = "";
         }
-        $kucunObj = $this->kucunModel->getListCondition($offset, $pagesize,$order,$filter='');
+        $kucunObj = $this->kucunModel->getListCondition($offset, $pagesize,$order,$filter);
         if($kucunObj){
             foreach($kucunObj as $row){
                 $house = $this->cangkuModel->getById($row->HouseId); //把仓库名查出来放到库存对象的HouseId里

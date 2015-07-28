@@ -1,21 +1,20 @@
 <div class="footer">
     <br/>
     <br/>
-        <form style="float:left"> 
+    <form style="float:left" id="form1" action="/kucun/index" method="post"> 
             <fieldset style="float:left">
                 <div style="float:left">
                     <label class="checkbox inline">
                         <button class="btn" type="button">筛选</button>
                     </label>
                 </div>
-                
                 <div style="float:left;padding-left: 10px">
                     <form class="form-horizontal">
                         <fieldset>
                             <div class="control-group">
                                 <div class="controls">
                                     <div class="input-prepend input-group">
-                                        <span class="add-on input-group-addon"><font size='2px'>起始时间 - 结束时间</font></span><input type="text" style="width: 200px" name="reservation" id="reservation" class="form-control" value="2015-01-01 - <?php echo date('Y-m-d'); ?> " /> 
+                                        <span class="add-on input-group-addon"><font size='2px'>起始时间 - 结束时间</font></span><input type="text" style="width: 200px" name="date" id="reservation" class="form-control" value="2015-01-01 - <?php echo date('Y-m-d'); ?> " /> 
                                     </div>
                                 </div>
                             </div>
@@ -26,14 +25,24 @@
                             $('#reservation').daterangepicker(null, function(start, end, label) {
                                 console.log(start.toISOString(), end.toISOString(), label);
                             });
-                            
-                            $("#applyDateBtn").click(function(){
-                                var setime = $("#reservation").attr("value");
-                                
-                                $.post("/kucun/index/",
-                                {
-                                  date: setime
+                            $("#form1").change(function(){
+                                //$('#form1').submit();
+                                $.ajax({
+                                    cache: true,
+                                    type: "POST",
+                                    url:ajaxCallUrl,
+                                    data:$('#yourformid').serialize(),// 你的formid
+                                    async: false,
+                                    error: function(request) {
+                                        alert("Connection error");
+                                    },
+                                    success: function(data) {
+                                        $("#commonLayout_appcreshi").parent().html(data);
+                                    }
                                 });
+                              });
+                              $('#applyDateBtn').click(function(){
+                                  $('#form1').submit();
                               });
                            });      
                     </script>
