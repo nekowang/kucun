@@ -48,7 +48,7 @@ class Kucun extends CI_Controller {
         $data['max_p'] = $max_p;
         $data['kucunnum'] = $kucunnum;
         
-        $kucunObj = $this->kucunModel->getList($offset, $pagesize);
+        $kucunObj = $this->kucunModel->getListCondition($offset, $pagesize);
         if($kucunObj){
             foreach($kucunObj as $row){
                 $house = $this->cangkuModel->getById($row->HouseId); //把仓库名查出来放到库存对象的HouseId里

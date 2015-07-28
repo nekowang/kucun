@@ -50,7 +50,7 @@ class Cangku extends CI_Controller {
         $data['max_p'] = $max_p;
         $data['cangkunum'] = $cangkunum;
         
-        $cangkuObj = $this->cangkuModel->getList($offset, $pagesize);
+        $cangkuObj = $this->cangkuModel->getListCondition($offset, $pagesize);
         $data['houses'] = $cangkuObj;
         $this->load->view('cangku', $data);
         //$this->load->view('footer');

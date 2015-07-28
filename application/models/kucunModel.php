@@ -22,8 +22,7 @@ class kucunModel extends CI_Model{
         $this->db->where('Id',$id);
         $this->db->update('Stock',$data);
     }
-    public function getList($offset, $pagesize){
-        $this->db->limit($pagesize,$offset);
+    public function getList(){
         $query = $this->db->get('Stock');
         $result = $query->result();
         return !empty($result) ? $result : false;
