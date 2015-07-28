@@ -28,6 +28,12 @@ class kucunModel extends CI_Model{
         $result = $query->result();
         return !empty($result) ? $result : false;
     }
+    public function getListCondition($offset,$pagesize){
+        $this->db->limit($pagesize,$offset);
+        $query = $this->db->get('Stock');
+        $result = $query->result();
+        return !empty($result) ? $result : false;
+    } 
     public function getById($id){
         $this->db->where('Id',$id);
         $query = $this->db->get('Stock');
