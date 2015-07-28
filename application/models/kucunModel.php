@@ -30,7 +30,9 @@ class kucunModel extends CI_Model{
     public function getListCondition($offset,$pagesize,$order,$filter){
         if(isset($filter['date'])){
             $this->db->where($filter['date']);
-            $this->db->where('isPay',$filter['pay']);
+        }
+        if(isset($filter['pay'])&&$filter['pay'] != ""){
+             $this->db->where('isPay',$filter['pay']);
         }
         if(isset($filter['search'])){
             $this->db->where($filter['title'],$filter['search']);
