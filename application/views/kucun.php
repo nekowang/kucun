@@ -40,23 +40,23 @@
 
     <div class="pagination pagination-small">
         <ul>
-            <li><a href="/kucun/index/1">首页</a></li>
+            <li><a href="/kucun/index/<?=$order;?>/1">首页</a></li>
             <?php if($page == 1 ) :?>
-            <li><a href="/kucun/index/1">前一页</a></li>
+            <li><a href="/kucun/index/<?=$order;?>/1">前一页</a></li>
             <?php endif; ?>
             <?php if($page > 1 ) :?>
-            <li><a href="/kucun/index/<?=$page-1;?>">前一页</a></li>
+            <li><a href="/kucun/index/<?=$order;?>/<?=$page-1;?>">前一页</a></li>
             <?php endif; ?>
             <?php for ($i = $init; $i <= $max_p; $i++) :?>
-            <li><a href="/kucun/index/<?=$i;?>"><?=$i;?></a></li>
+            <li><a href="/kucun/index/<?=$order;?>/<?=$i;?>"><?=$i;?></a></li>
             <?php endfor;?>
             <?php if($page < $pagenum) :?>
-            <li><a href="/kucun/index/<?=$page+1;?>">后一页</a></li>
+            <li><a href="/kucun/index/<?=$order;?>/<?=$page+1;?>">后一页</a></li>
              <?php endif; ?>
             <?php if($page == $pagenum) :?>
-            <li><a href="/kucun/index/<?=$pagenum;?>">后一页</a></li>
+            <li><a href="/kucun/index/<?=$order;?>/<?=$pagenum;?>">后一页</a></li>
              <?php endif; ?>
-            <li><a href="/kucun/index/<?=$pagenum;?>">末页</a></li>
+            <li><a href="/kucun/index/<?=$order;?>/<?=$pagenum;?>">末页</a></li>
             <li><?php echo "<font size='2px'>&nbsp;&nbsp;共有<font color='red'> $kucunnum </font>条 /<font color='red'> $pagenum</font> 页数据</font>"; ?></li>
         </ul>
         <span class="buttontianjia"></span>

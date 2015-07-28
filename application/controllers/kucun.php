@@ -11,7 +11,7 @@ class Kucun extends CI_Controller {
         $this->load->view('header');
         }
 
-    public function index($order='',$page = 1){
+    public function index($order='id',$page = 1){
         //分页开始
         $kucunnum = $this->kucunModel->getListNum();
         $pagesize = 20;
@@ -43,11 +43,14 @@ class Kucun extends CI_Controller {
                 }
             }
         }
+        $all_url = $order.'/'.$page.'/';
         $data['page'] = $page;
         $data['pagenum'] = $pagenum;
         $data['init'] = $init;
         $data['max_p'] = $max_p;
         $data['kucunnum'] = $kucunnum;
+        $data['order'] = $order;
+        
         //分页结束
         if($this->input->post()){
             $form=$this->input->post();

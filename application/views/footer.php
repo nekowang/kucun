@@ -119,9 +119,9 @@
                     <label class="checkbox inline">
                          <button class="btn" type="button">排序</button>
                         <span>&nbsp;日期&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <a href="/kucun/index/asc"><img src='/img/sec_down.gif'></img></a>
+                        <a href="/kucun/index/desc/1"><img src='/img/sec_down.gif'></img></a>
                         <span>&nbsp;</span>
-                        <a href="/kucun/index/desc"><img src='/img/sec_up.gif'></img></a>
+                        <a href="/kucun/index/asc/1"><img src='/img/sec_up.gif'></img></a>
                     </label>
                 </div>
             </fieldset>

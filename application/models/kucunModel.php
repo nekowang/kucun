@@ -36,7 +36,7 @@ class kucunModel extends CI_Model{
             $this->db->where($filter['title'],$filter['search']);
         }
         $this->db->limit($pagesize,$offset);
-        if($order != '')    $this->db->order_by('BuyingDate',$order);
+        if($order != 'id')    $this->db->order_by('BuyingDate',$order);
         $query = $this->db->get('Stock');
         $result = $query->result();
         return !empty($result) ? $result : false;
