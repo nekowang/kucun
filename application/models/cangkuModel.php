@@ -22,8 +22,13 @@ class cangkuModel extends CI_Model{
         $this->db->where('Id',$id);
         $this->db->update('Warehouse',$data);
     }
-    public function getList($offset,$pagesize){
+    public function getListCondition($offset,$pagesize){
         $this->db->limit($pagesize,$offset);
+        $query = $this->db->get('Warehouse');
+        $result = $query->result();
+        return !empty($result) ? $result : false;
+    }    
+    public function getList(){
         $query = $this->db->get('Warehouse');
         $result = $query->result();
         return !empty($result) ? $result : false;
