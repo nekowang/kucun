@@ -27,8 +27,16 @@ class kucunModel extends CI_Model{
         $result = $query->result();
         return !empty($result) ? $result : false;
     }
-    public function getListCondition($offset,$pagesize){
+    public function getListCondition($offset,$pagesize,$order,$filter){
+        if(isset($filter['date'])){
+            $this->db->where($filter['date']);
+            $this->db->where('isPay',$filter['pay']);
+        }
+        if(isset($filter['search'])){
+            $this->db->where($filter['title'],$filter['search']);
+        }
         $this->db->limit($pagesize,$offset);
+        if($order != '')    $this->db->order_by('BuyingDate',$order);
         $query = $this->db->get('Stock');
         $result = $query->result();
         return !empty($result) ? $result : false;

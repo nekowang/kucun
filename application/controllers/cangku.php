@@ -14,6 +14,7 @@ class Cangku extends CI_Controller {
     }
 
     public function index($page = 1) {
+        //分页开始
         $cangkunum = $this->cangkuModel->getListNum();
         $pagesize = 20;
         $pagenum = ceil($cangkunum / $pagesize);
@@ -49,7 +50,7 @@ class Cangku extends CI_Controller {
         $data['init'] = $init;
         $data['max_p'] = $max_p;
         $data['cangkunum'] = $cangkunum;
-        
+        //分页结束
         $cangkuObj = $this->cangkuModel->getListCondition($offset, $pagesize);
         $data['houses'] = $cangkuObj;
         $this->load->view('cangku', $data);

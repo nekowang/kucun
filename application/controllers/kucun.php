@@ -11,7 +11,8 @@ class Kucun extends CI_Controller {
         $this->load->view('header');
         }
 
-    public function index($page = 1){
+    public function index($order='',$page = 1){
+        //分页开始
         $kucunnum = $this->kucunModel->getListNum();
         $pagesize = 20;
         $pagenum = ceil($kucunnum / $pagesize);
@@ -47,8 +48,35 @@ class Kucun extends CI_Controller {
         $data['init'] = $init;
         $data['max_p'] = $max_p;
         $data['kucunnum'] = $kucunnum;
-        
-        $kucunObj = $this->kucunModel->getListCondition($offset, $pagesize);
+        //分页结束
+        if($this->input->post()){
+            $form=$this->input->post();
+            if($form['search']){
+                $filter = array(
+                    'search'=>$form['search'],
+                    'title'=>$form['title']
+                    );
+            }else{
+                $from = substr($form['date'],0,10);
+                $to = substr($form['date'],10);
+                switch ($form['pay']){
+                    case 0:
+                        $pay = "";
+                        break;
+                    case 1:    
+                        $pay = "0";
+                        break;
+                    case 2:
+                        $pay = "1";
+                        break;
+                }
+                $filter = array(
+                    'date'=>"BuyingDate BETWEEN $from AND $to",
+                    'pay'=>$pay
+                );
+            }
+        }
+        $kucunObj = $this->kucunModel->getListCondition($offset, $pagesize,$order,$filter='');
         if($kucunObj){
             foreach($kucunObj as $row){
                 $house = $this->cangkuModel->getById($row->HouseId); //把仓库名查出来放到库存对象的HouseId里
