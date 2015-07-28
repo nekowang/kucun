@@ -58,7 +58,7 @@ class Kucun extends CI_Controller {
             $data['products']=$kucunObj;
             $this->load->view('kucun',$data);
         
-            //$this->load->view('footer');
+            $this->load->view('footer');
     }
 
     public function add(){
