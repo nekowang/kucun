@@ -22,7 +22,8 @@ class cangkuModel extends CI_Model{
         $this->db->where('Id',$id);
         $this->db->update('Warehouse',$data);
     }
-    public function getList(){
+    public function getList($offset,$pagesize){
+        $this->db->limit($pagesize,$offset);
         $query = $this->db->get('Warehouse');
         $result = $query->result();
         return !empty($result) ? $result : false;
@@ -33,4 +34,10 @@ class cangkuModel extends CI_Model{
         $result = $query->row();
         return !empty($result) ? $result : false;
     }
+    public function getListNum(){
+        $this->db->select('id');
+        $query = $this->db->get('Warehouse');
+        return $query->num_rows();
+    }
+    
 }

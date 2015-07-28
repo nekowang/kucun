@@ -33,17 +33,24 @@
 
     <div class="pagination pagination-small">
         <ul>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">前一页</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">后一页</a></li>
-            <li><a href="#">末页</a></li>
-            <li><?php echo "<font size='2px'>&nbsp;&nbsp;共有<font color='red'> 650 </font>条数据</font>"; ?></li>
+            <li><a href="/cangku/index/1">首页</a></li>
+            <?php if($page == 1 ) :?>
+            <li><a href="/cangku/index/1">前一页</a></li>
+            <?php endif; ?>
+            <?php if($page > 1 ) :?>
+            <li><a href="/cangku/index/<?=$page-1;?>">前一页</a></li>
+            <?php endif; ?>
+            <?php for ($i = $init; $i <= $max_p; $i++) :?>
+            <li><a href="/cangku/index/<?=$i;?>"><?=$i;?></a></li>
+            <?php endfor;?>
+            <?php if($page < $pagenum) :?>
+            <li><a href="/cangku/index/<?=$page+1;?>">后一页</a></li>
+             <?php endif; ?>
+            <?php if($page == $pagenum) :?>
+            <li><a href="/cangku/index/<?=$pagenum;?>">后一页</a></li>
+             <?php endif; ?>
+            <li><a href="/cangku/index/<?=$pagenum;?>">末页</a></li>
+            <li><?php echo "<font size='2px'>&nbsp;&nbsp;共有<font color='red'> $cangkunum </font>条 /<font color='red'> $pagenum</font> 页数据</font>"; ?></li>
         </ul>
         <span class="buttontianjia"></span>
         <button class="btn btn-primary  btn-small" type="button" id="addcangku">+ 添加仓库</button>
