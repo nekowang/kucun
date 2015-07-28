@@ -46,9 +46,40 @@
             </div>                
             <br/>
             <div style="padding-left: 1120px">
-                <button class="btn btn-primary btn-success" type="submit">确认添加</button>
+                <button class="btn btn-primary btn-success" type="submit" id="querenadd">确认添加</button>
                 <button class="btn" type="reset">重置</button>
             </div>
         </fieldset>
     </form>
 </div>
+
+<?php if (isset($addinfo) && !empty($addinfo)): ?>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#foo').modal({
+                show: true
+            });
+        });
+    </script>
+<?php endif; ?>
+
+<div id="foo" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">库存管理系统 v1.0</button>
+        <h3 id="myModalLabel"></h3>
+    </div>
+    <div class="modal-body">
+        <p>添加成功! 信息已经保存在仓库中</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">继续添加</button>
+        <button class="btn btn-primary" id='fanhuicangku'>返回仓库页面</button>
+    </div>
+</div>
+<script type="text/javascript">
+        $(document).ready(function(){
+           $("#fanhuicangku").click(function(){
+                location.href = "/cangku/index";  
+           });
+        });
+</script>

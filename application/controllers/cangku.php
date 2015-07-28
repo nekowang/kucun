@@ -63,7 +63,8 @@ class Cangku extends CI_Controller {
         } else {
             $this->cangkuModel->add($cangku);
             //$this->load->view('footer');
-            redirect('/cangku/index');
+            $data['addinfo'] = 'sucess';
+            $this->load->view('addcangku',$data);
         }
     }
 

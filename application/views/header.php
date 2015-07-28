@@ -15,7 +15,8 @@
         <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="/js/moment.js"></script>
         <script type="text/javascript" src="/js/daterangepicker.js"></script>
-
+        <script type="text/javascript" src="/js/bootstrap.min.js"/></script>
+    
         <style type="text/css">
             body {
                 padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
