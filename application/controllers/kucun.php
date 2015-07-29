@@ -61,25 +61,28 @@ class Kucun extends CI_Controller {
                     );
             }else{
                 $from = substr($form['date'],0,10);
-                $to = substr($form['date'],12);
+                $to = substr($form['date'],13);
                 switch ($form['pay']){
                     case 0:
                         $pay = "";
                         break;
                     case 1:    
-                        $pay = "0";
+                        $pay = "1";
                         break;
                     case 2:
-                        $pay = "1";
+                        $pay = "0";
                         break;
                 }
                 $filter = array(
                     'date'=>"BuyingDate BETWEEN '$from' AND '$to'",
                     'pay'=>$pay
                 );
+              $footer['date'] = $from." - ".$to;
+              $footer['pay'] = $form['pay'];
             }
         }else{
             $filter = "";
+            $footer = "";
         }
         $kucunObj = $this->kucunModel->getListCondition($offset, $pagesize,$order,$filter);
         if($kucunObj){
@@ -90,8 +93,10 @@ class Kucun extends CI_Controller {
         }
             $data['products']=$kucunObj;
             $this->load->view('kucun',$data);
-        
-            $this->load->view('footer');
+        if($filter = "") { $this->load->view('footer');
+        }else{
+              $this->load->view('footer',$footer);
+          }
     }
 
     public function add(){
