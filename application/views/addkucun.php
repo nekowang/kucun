@@ -44,7 +44,7 @@
                 <div class="controls">
                     <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;材质：</span>                    
                     <input type="text" id="inputInfo" name="Texture">
-                    <span class="help-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;品重量(吨)：</span>                    
+                    <span class="help-inline">&nbsp;&nbsp;&nbsp;品重量(吨)：</span>                    
                     <input type="text" id="inputInfo" name="Weight">                    
                     <span class="help-inline kucunpadding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单价：</span>                    
                     <input type="text" id="inputInfo" name="Price">
