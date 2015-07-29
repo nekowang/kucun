@@ -1,9 +1,10 @@
 <div class="footer">
     <br/>
     <br/>
+  <div style="display:block;">
     <form style="float:left" id="form1" action="/kucun/index" method="post"> 
             <fieldset style="float:left">
-                <div style="float:left;padding-left: 10px">
+                <div style="float:left;padding-left: 20px">
                     <form class="form-horizontal">
                         <fieldset>
                             <div class="control-group">
@@ -45,7 +46,7 @@
                 </div>   
                 
                 <div style="float:left;padding-left: 10px">
-                    <span>付款：</span>
+                    <span style="vertical-align: bottom">付款：</span>
                     <label class="radio inline">
                         <input type="radio" name="pay" id="pay0" value="0" checked>全部
                     </label>
@@ -82,8 +83,8 @@
                               });                          
                           });      
                     </script>
-                <div style="float:left;padding-left: 10px">                      
-                    <span>利润：</span>
+                <div style="float:left;padding-left: 10px;">                      
+                    <span style="vertical-align: bottom">利润：</span>
                     <label class="radio inline">
                         <input type="radio" name="lirun" id="lirun0" value="0">全部
                     </label>
@@ -96,38 +97,54 @@
                 </div>
                 <div style="float:left">
                     <label class="checkbox inline">
-                        <button type="submit" class="btn btn-small btn-primary" style="float:left">筛选</button>
+                        <button type="submit" class="btn btn-small btn-primary" style="float:left;height: 25px">筛选</button>&nbsp;
+                        <button class="btn btn-small" type="button" id="cancelsx" style="height: 25px">取消筛选</button>
                     </label>
                 </div>                    
             </fieldset>
         </form>
-                
-    <form style="float:left;padding-left: 100px" action="/kucun/index" method="post">
-            <fieldset style="float:left">
-                <div style="float:left;padding-left: 10px">  
-                    <select class="span2" name="title">
-                        <option value="Code">产品编号</option>
-                        <option value="BuyingDate">采购日期</option>
-                    </select>
-                </div>
-                <div style="float:left;padding-left: 5px">
-                        <div class="input-append" style="float:left">
-                            <input type="text" class="span2" name='search' style="float:left"/><span style="float:left;padding-left: 5px"> &nbsp;</span>
-                            <button type="submit" class="btn btn-small btn-primary" style="float:left">搜索</button>
-                        </div>
-                </div>
-            </fieldset>
-        </form>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+     <script type="text/javascript">
+        $(document).ready(function(){
+           $("#cancelsx").click(function(){
+                location.href = "/kucun/index";  
+           });
+        });
+    </script>
+    <div style="float:left;padding-left: 30px;">
+        <form  action="/kucun/index" method="post">
+                <fieldset style="float:left">
+                    <div style="float:left;padding-left: 10px">  
+                        <select class="span2" name="title" style="height: 27px">
+                            <option value="Code">产品编号</option>
+                            <option value="BuyingDate">采购日期</option>
+                        </select>
+                    </div>
+                    <div style="float:left;padding-left: 5px">
+                            <div class="input-append" style="float:left">
+                                <input type="text" class="span2" name='search' style="float:left;height: 17px"/>&nbsp;<span style="float:left;padding-left: 5px"> &nbsp;&nbsp;</span>&nbsp;
+                                <button type="submit" class="btn btn-small btn-primary" style="float:left;height: 26px">搜索</button>
+                            </div>
+                    </div>
+                </fieldset>
+            </form>
+    </div>
+  </div>
         <form align="left">
             <fieldset>
                 <div>
                     <label class="checkbox inline">
-                         <button class="btn" type="button">排序</button>
-                        <span>&nbsp;日期&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                         
+                     <form class="form-horizontal" style="display:inline">
+                        <fieldset style="display:inline">
+                            <div class="control-group" style="display:inline">
+                                <div class="controls" style="display:inline">
+                                    <div class="input-prepend input-group" style="display:inline">
+                                        <span class="add-on input-group-addon"><font size='2px'>按采购日期排序</font></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form><span>&nbsp;&nbsp;&nbsp;</span>
                         <a href="/kucun/index/desc/1"><img src='/img/sec_down.gif'></img></a>
                         <span>&nbsp;</span>
                         <a href="/kucun/index/asc/1"><img src='/img/sec_up.gif'></img></a>
@@ -135,7 +152,6 @@
                 </div>
             </fieldset>
         </form>
-
 
 </body>
 </html>
