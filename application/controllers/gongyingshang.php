@@ -5,7 +5,13 @@ class Gongyingshang extends CI_Controller {
         public function __construct() {
             parent::__construct();
                 //$this->load->model('admin_model');
-        }
+            $this->load->helper('url');
+            $session_id = $this->session->userdata('username');
+            if(empty($session_id)){
+                header("location:/login/index");
+                exit();
+            }
+       }
 
 	public function index()
 	{

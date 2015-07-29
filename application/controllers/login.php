@@ -26,12 +26,20 @@ class Login extends CI_Controller {
                 $password_search = $res['Password'];
 
                 if($password == $password_search){
+                    $this->session->set_userdata('username',$username);
                     header("location:/fahuo/index");
                 }else{
                     header("location:$url?error=false");
                 }
             }
         }
+        
+        public function logoff(){
+            $this->session->unset_userdata('username');
+            header("location:/login/index");
+            
+        }
+        
 }
 
 /* End of file login.php */

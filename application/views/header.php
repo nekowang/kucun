@@ -70,7 +70,7 @@
                     <ul class="nav" style="float:right">
                         <li><a>管理页: admin</a></li>
                         <li><a href="/fahuo/index">系统主页</a></li>
-                        <li><a href="/login/index">退出系统</a></li>
+                        <li><a href="/login/logoff">退出系统</a></li>
                         <li><a><?php date_default_timezone_set('PRC');
 echo date('Y-m-d'); ?> <span id="timeclock"></span></a></li>
                     </ul>
