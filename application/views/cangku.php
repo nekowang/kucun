@@ -42,7 +42,11 @@
             <li><a href="/cangku/index/<?=$page-1;?>">前一页</a></li>
             <?php endif; ?>
             <?php for ($i = $init; $i <= $max_p; $i++) :?>
-            <li><a href="/cangku/index/<?=$i;?>"><?=$i;?></a></li>
+                <?php if($i == $page){ ?>
+            <li><a><font color="black"><b><?=$i;?></b></font></a></li>
+                <?php }else{ ?>
+                    <li><a href="/cangku/index/<?=$i;?>"><?=$i;?></a></li>
+                <?php };?>
             <?php endfor;?>
             <?php if($page < $pagenum) :?>
             <li><a href="/cangku/index/<?=$page+1;?>">后一页</a></li>

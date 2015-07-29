@@ -50,7 +50,16 @@ class kucunModel extends CI_Model{
         return !empty($result) ? $result : false;
     }
     
-    public function getListNum(){
+    public function getListNum($filter){
+        if(isset($filter['date'])){
+            $this->db->where($filter['date']);
+        }
+        if(isset($filter['pay'])&&$filter['pay'] != ""){
+             $this->db->where('isPay',$filter['pay']);
+        }
+        if(isset($filter['search'])){
+            $this->db->where($filter['title'],$filter['search']);
+        }        
         $this->db->select('id');
         $query = $this->db->get('Stock');
         return $query->num_rows();

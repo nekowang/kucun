@@ -12,8 +12,40 @@ class Kucun extends CI_Controller {
         }
 
     public function index($order='id',$page = 1){
+        
+        //获取筛选条件
+        if($this->input->post() != false){
+            $form=$this->input->post();
+            if(isset($form['search']) && !empty($form['search'])){
+                $filter = array(
+                    'search'=>$form['search'],
+                    'title'=>$form['title']
+                    );
+            }else{
+                $from = substr($form['date'],0,10);
+                $to = substr($form['date'],12);
+                switch ($form['pay']){
+                    case 0:
+                        $pay = "";
+                        break;
+                    case 1:    
+                        $pay = "0";
+                        break;
+                    case 2:
+                        $pay = "1";
+                        break;
+                }
+                $filter = array(
+                    'date'=>"BuyingDate BETWEEN '$from' AND '$to'",
+                    'pay'=>$pay
+                );
+            }
+        }else{
+            $filter = "";
+        }
+        
         //分页开始
-        $kucunnum = $this->kucunModel->getListNum();
+        $kucunnum = $this->kucunModel->getListNum($filter);
         $pagesize = 20;
         $pagenum = ceil($kucunnum / $pagesize);
         if (empty($page)) {
@@ -51,36 +83,6 @@ class Kucun extends CI_Controller {
         $data['kucunnum'] = $kucunnum;
         $data['order'] = $order;
         
-        //分页结束
-        if($this->input->post() != false){
-            $form=$this->input->post();
-            if(isset($form['search']) && !empty($form['search'])){
-                $filter = array(
-                    'search'=>$form['search'],
-                    'title'=>$form['title']
-                    );
-            }else{
-                $from = substr($form['date'],0,10);
-                $to = substr($form['date'],12);
-                switch ($form['pay']){
-                    case 0:
-                        $pay = "";
-                        break;
-                    case 1:    
-                        $pay = "0";
-                        break;
-                    case 2:
-                        $pay = "1";
-                        break;
-                }
-                $filter = array(
-                    'date'=>"BuyingDate BETWEEN '$from' AND '$to'",
-                    'pay'=>$pay
-                );
-            }
-        }else{
-            $filter = "";
-        }
         $kucunObj = $this->kucunModel->getListCondition($offset, $pagesize,$order,$filter);
         if($kucunObj){
             foreach($kucunObj as $row){
