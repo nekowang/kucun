@@ -3,11 +3,6 @@
     <br/>
     <form style="float:left" id="form1" action="/kucun/index" method="post"> 
             <fieldset style="float:left">
-                <div style="float:left">
-                    <label class="checkbox inline">
-                        <button class="btn" type="button">筛选</button>
-                    </label>
-                </div>
                 <div style="float:left;padding-left: 10px">
                     <form class="form-horizontal">
                         <fieldset>
@@ -99,10 +94,15 @@
                         <input type="radio" name="lirun" id="lirun2" value="2"><font color='red'>负</font>
                     </label>
                 </div>
+                <div style="float:left">
+                    <label class="checkbox inline">
+                        <button type="submit" class="btn btn-small btn-primary" style="float:left">筛选</button>
+                    </label>
+                </div>                    
             </fieldset>
         </form>
                 
-    <form style="float:left" action="/kucun/index" method="post">
+    <form style="float:left;padding-left: 100px" action="/kucun/index" method="post">
             <fieldset style="float:left">
                 <div style="float:left;padding-left: 10px">  
                     <select class="span2" name="title">
@@ -113,7 +113,7 @@
                 <div style="float:left;padding-left: 5px">
                         <div class="input-append" style="float:left">
                             <input type="text" class="span2" name='search' style="float:left"/><span style="float:left;padding-left: 5px"> &nbsp;</span>
-                            <button type="submit" class="btn btn-small btn-primary" style="float:left">筛选</button>
+                            <button type="submit" class="btn btn-small btn-primary" style="float:left">搜索</button>
                         </div>
                 </div>
             </fieldset>
