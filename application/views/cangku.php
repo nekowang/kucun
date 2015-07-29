@@ -32,7 +32,7 @@
         </table>
     </div>
 
-    <div class="pagination pagination-small">
+    <div class="pagination pagination-small" id="nav">
         <ul>
             <li><a href="/cangku/index/1">首页</a></li>
             <?php if($page == 1 ) :?>
@@ -58,7 +58,7 @@
             <li><?php echo "<font size='2px'>&nbsp;&nbsp;共有<font color='red'> $cangkunum </font>条 /<font color='red'> $pagenum</font> 页数据</font>"; ?></li>
         </ul>
         <span class="buttontianjia"></span>
-        <button class="btn btn-primary  btn-small" type="button" id="addcangku">+ 添加仓库</button>
+            <button class="btn btn-primary  btn-small" type="button" id="addcangku">+ 添加仓库</button>
     </div>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -67,3 +67,7 @@
            });
         });
     </script>
+        <style>
+        #nav{position:relative;bottom: 10px;left: 0px;height: 30px;}
+        #nav button{position: absolute;right: 100px;top: 0px;}
+    </style>

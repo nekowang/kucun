@@ -38,7 +38,7 @@
         </table>
     </div>
 
-    <div class="pagination pagination-small">
+    <div class="pagination pagination-small" id="nav">
         <ul>
             <li><a href="/kucun/index/<?=$order;?>/1">首页</a></li>
             <?php if($page == 1 ) :?>
@@ -64,7 +64,7 @@
             <li><?php echo "<font size='2px'>&nbsp;&nbsp;共有<font color='red'> $kucunnum </font>条 /<font color='red'> $pagenum</font> 页数据</font>"; ?></li>
         </ul>
         <span class="buttontianjia"></span>
-        <button class="btn btn-primary  btn-small" type="button" id="addkucun">+ 添加库存</button>
+            <button class="btn btn-primary  btn-small" type="button" id="addkucun">+ 添加库存</button>
     </div>
     <script type="text/javascript">
         $(document).ready(function(){

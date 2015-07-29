@@ -124,7 +124,7 @@ class Kucun extends CI_Controller {
         if($kucunObj){
             foreach($kucunObj as $row){
                 $house = $this->cangkuModel->getById($row->HouseId); //把仓库名查出来放到库存对象的HouseId里
-                $row->HouseId = $house->Name;
+                @$row->HouseId = $house->Name;
             }
         }
             $data['products']=$kucunObj;
