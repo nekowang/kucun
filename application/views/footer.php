@@ -10,7 +10,7 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <div class="input-prepend input-group">
-                                        <span class="add-on input-group-addon"><font size='2px'>起始时间 - 结束时间</font></span><input type="text" style="width: 200px" name="date" id="reservation" class="form-control" value="2015-01-01 - <?php echo date('Y-m-d'); ?> " /> 
+                                        <span class="add-on input-group-addon"><font size='2px'>起始时间 - 结束时间</font></span><input type="text" style="width: 200px" name="date" id="reservation"  /> 
                                     </div>
                                 </div>
                             </div>
@@ -18,37 +18,42 @@
                     </form>
                     <script type="text/javascript">
                         $(document).ready(function() {
+                            $('#reservation').val("<?php echo isset($date)?$date:"1949-01-01 - ".date('Y-m-d');?>");
+                            $('#pay input').eq(<?php echo isset($pay) ? $pay : 0;?>).attr('checked', 'true');
+                            $('#submitform1').click(function(){
+                                $('#form1').submit();
+                            });
                             $('#reservation').daterangepicker(null, function(start, end, label) {
                                 console.log(start.toISOString(), end.toISOString(), label);
                             });
-                            $("#form1").change(function(){
-                                //$('#form1').submit();
-                                $.ajax({
-                                    cache: true,
-                                    type: "POST",
-                                    url:ajaxCallUrl,
-                                    data:$('#yourformid').serialize(),// 你的formid
-                                    async: false,
-                                    error: function(request) {
-                                        alert("Connection error");
-                                    },
-                                    success: function(data) {
-                                        $("#commonLayout_appcreshi").parent().html(data);
-                                    }
-                                });
-                              });
-                              $('#applyDateBtn').click(function(){
-                                  $('#form1').submit();
-                              });
+//                            $("#form1").change(function(){
+//                                $('#form1').submit();
+////                                $.ajax({
+////                                    cache: true,
+////                                    type: "POST",
+////                                    url:ajaxCallUrl,
+////                                    data:$('#form1').serialize(),// 你的formid
+////                                    async: false,
+////                                    error: function(request) {
+////                                        alert("Connection error");
+////                                    },
+////                                    success: function(data) {
+////                                        $("#commonLayout_appcreshi").parent().html(data);
+////                                    }
+////                                });
+//                              });
+//                              $('#applyDateBtn').click(function(){
+//                                  $('#form1').submit();
+//                              });
                            });      
                     </script>
 
                 </div>   
                 
-                <div style="float:left;padding-left: 10px">
+                <div style="float:left;padding-left: 10px" id="pay">
                     <span style="vertical-align: bottom">付款：</span>
                     <label class="radio inline">
-                        <input type="radio" name="pay" id="pay0" value="0" checked>全部
+                        <input type="radio" name="pay" id="pay0" value="0">全部
                     </label>
                     <label class="radio inline">
                         <input type="radio" name="pay" id="pay1" value="1"><font color='green'>已付清</font>

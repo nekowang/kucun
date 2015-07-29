@@ -82,7 +82,39 @@ class Kucun extends CI_Controller {
         $data['max_p'] = $max_p;
         $data['kucunnum'] = $kucunnum;
         $data['order'] = $order;
-        
+        //分页结束
+        if($this->input->post() != false){
+            $form=$this->input->post();
+            if(isset($form['search']) && !empty($form['search'])){
+                $filter = array(
+                    'search'=>$form['search'],
+                    'title'=>$form['title']
+                    );
+            }else{
+                $from = substr($form['date'],0,10);
+                $to = substr($form['date'],13);
+                switch ($form['pay']){
+                    case 0:
+                        $pay = "";
+                        break;
+                    case 1:    
+                        $pay = "1";
+                        break;
+                    case 2:
+                        $pay = "0";
+                        break;
+                }
+                $filter = array(
+                    'date'=>"BuyingDate BETWEEN '$from' AND '$to'",
+                    'pay'=>$pay
+                );
+              $footer['date'] = $from." - ".$to;
+              $footer['pay'] = $form['pay'];
+            }
+        }else{
+            $filter = "";
+            $footer = "";
+        }
         $kucunObj = $this->kucunModel->getListCondition($offset, $pagesize,$order,$filter);
         if($kucunObj){
             foreach($kucunObj as $row){
@@ -92,8 +124,10 @@ class Kucun extends CI_Controller {
         }
             $data['products']=$kucunObj;
             $this->load->view('kucun',$data);
-        
-            $this->load->view('footer');
+        if($filter = "") { $this->load->view('footer');
+        }else{
+              $this->load->view('footer',$footer);
+          }
     }
 
     public function add(){
