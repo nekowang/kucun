@@ -17,7 +17,7 @@ class Fahuo extends CI_Controller {
 	{
 		$this->load->view('header');
 		$this->load->view('fahuo');
-                $this->load->view('footer');
+                //$this->load->view('footer');
 	}
         
         

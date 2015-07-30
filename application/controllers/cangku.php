@@ -67,6 +67,9 @@ class Cangku extends CI_Controller {
         if (!$cangku) {
             $this->load->view('addcangku');
         } else {
+            foreach ($cangku as $key => $val){
+                $cangku[$key] = trim($val);
+            }
             $this->cangkuModel->add($cangku);
             //$this->load->view('footer');
             $data['addinfo'] = 'sucess';
@@ -81,6 +84,9 @@ class Cangku extends CI_Controller {
             $this->load->view('editcangku', $data);
         } else {
             $cangku = $this->input->post();
+            foreach ($cangku as $key => $val){
+                $cangku[$key] = trim($val);
+            }
             $id = $cangku['Id'];
             unset($cangku['Id']);
             $this->cangkuModel->edit($id, $cangku);

@@ -23,7 +23,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
            $("#fanhuiindex").click(function(){
-                location.href = "/fahuo/index";  
+                location.href = "/kucun/index";  
            });
            $("#fanhuipwd").click(function(){
                 location.href = "/system/index";  

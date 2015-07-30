@@ -24,6 +24,7 @@ class cangkuModel extends CI_Model{
     }
     public function getListCondition($offset,$pagesize){
         $this->db->limit($pagesize,$offset);
+        $this->db->order_by('Id','desc');
         $query = $this->db->get('Warehouse');
         $result = $query->result();
         return !empty($result) ? $result : false;

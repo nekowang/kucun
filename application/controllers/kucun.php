@@ -23,7 +23,7 @@ class Kucun extends CI_Controller {
             $form=$this->input->post();
             if(isset($form['search'])){
                 $filter = array(
-                    'search'=>$form['search'],
+                    'search'=>trim($form['search']),
                     'title'=>$form['title']
                     );
             }else{
@@ -114,6 +114,9 @@ class Kucun extends CI_Controller {
             $data['cangku'] = $cangku;
             $this->load->view('addkucun',$data);
         }else{
+            foreach ($kucun as $key => $val){
+                $kucun[$key] = trim($val);
+            }
             $this->kucunModel->add($kucun);
             //$this->load->view('footer');
             $data['addinfo'] = 'sucess';
@@ -133,6 +136,9 @@ class Kucun extends CI_Controller {
             $this->load->view('editkucun',$data);
         }else{
             $kucun = $this->input->post();
+            foreach ($kucun as $key => $val){
+                $kucun[$key] = trim($val);
+            }
             $id = $kucun['Id'];
             unset($kucun['Id']);
             $this->kucunModel->edit($id,$kucun);

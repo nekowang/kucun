@@ -12,8 +12,8 @@ class Login extends CI_Controller {
 	}
         
         public function verify(){
-            $username = $this->input->post('username');
-            $password_ori = $this->input->post('password');
+            $username = trim($this->input->post('username'));
+            $password_ori = trim($this->input->post('password'));
             $password = md5($password_ori);
             
             $url = preg_replace('/\?error=false/', '', $_SERVER['HTTP_REFERER']);
@@ -27,7 +27,7 @@ class Login extends CI_Controller {
 
                 if($password == $password_search){
                     $this->session->set_userdata('username',$username);
-                    header("location:/fahuo/index");
+                    header("location:/kucun/index");
                 }else{
                     header("location:$url?error=false");
                 }

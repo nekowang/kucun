@@ -28,12 +28,12 @@
         <div class="control-group">
             <label class="control-label" for="inputPassword">新密码</label>
             <div class="controls">
-                <input type="text" id="inputPassword" placeholder="" name="newpwd">
+                <input type="text" id="inputNewPassword" placeholder="" name="newpwd">
             </div>
         </div>        
         <div class="control-group">
             <div class="controls">
-                <button type="submit" class="btn" id="confirmpwd">确认修改</button>
+                <button type="submit" class="btn" id="confirmpwd">确认修改</button><span><font  id="inputnewpwd" size='1px' color='red' style='padding-left:40px;'></font></span>
                     <?php
                     $error = $this->input->get('error');
                     if (!empty($error)) {
@@ -41,6 +41,16 @@
                     }
                     ?>
             </div>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $("#confirmpwd").click(function(){
+                        var newpwd = $("#inputNewPassword").val();
+                        if( newpwd == ''){
+                            $("#inputnewpwd").text(' 新密码不能为空');
+                        }
+                    });
+                });
+            </script>
         </div>
     </form>
 </div>
