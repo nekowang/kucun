@@ -3,8 +3,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <body>
-        <div id="blue"></div>
-        <div id="login">
+        <div id="blue"><div id="login">
             <div id="version"></div>
             <form action="/login/verify" method="post">
                 <div id="username">
@@ -22,7 +21,8 @@
                     ?></div>
                 <input type="submit" value="登&nbsp&nbsp;录" id="submit" />
             </form>
-        </div>	
+        </div></div>
+        	
     </body>
     <style>
         input{outline:none;
@@ -31,7 +31,7 @@
         input:-webkit-autofill {-webkit-box-shadow: 0 0 0px 1000px white inset;}
         body{background:#808080 no-repeat;}
         #login{
-            position:relative;left:35%;top:33%;
+            position:relative;left:35%;top:-10%;
             height:350px;width:500px;
             background:#dddddd;
             border-radius:4px;
